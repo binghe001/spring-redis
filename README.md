@@ -179,7 +179,7 @@
 </div>
 
 <div align="center">
-    <img src="images/transaction.png?raw=true" width="100%">
+    <img src="images/transaction.png?raw=true" width="80%">
       <div style="font-size: 18px;"><a href="https://item.jd.com/12972343.html">《深入理解分布式事务：原理与实战》</a></div>
     <br/>
 </div>
