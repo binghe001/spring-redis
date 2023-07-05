@@ -61,7 +61,12 @@
 
 ## 关于本仓库
 
-📚 基于Redis解决缓存击穿、穿透和雪崩问题的通用解决方案，拿来即用。
+📚 基于Redis解决缓存击穿、穿透和雪崩问题的通用解决方案，拿来即用。支持存储对象、集合、简单数据类型等。无需提前将数据存入Redis，直接使用提供的分布式缓存接口查询数据即可，附带完善的单元测试用例，方便学习使用。  
+
+分布式缓存核心接口源码详见：`io.binghe.redis.cache.distribute.DistributeCacheService`  
+默认基于Redis的实现类的源码详见：`io.binghe.redis.cache.distribute.redis.RedisDistributeCacheService`  
+也可以基于SpringBoot的`@ConditionalOnProperty`注解扩展基于其他缓存中间件的实现类  
+项目配有完善的单元测试用例，具体测试源码详见：`src/test/java`目录下的`io.binghe.redis.test.DistributeCacheServiceTest`
 
 
 <div align="center">
