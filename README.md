@@ -5,7 +5,7 @@
 - :seedling: 干货：[公众号『 冰河技术 』](https://img-blog.csdnimg.cn/20210426115714643.jpg)
 - :pencil: 博客：[binghe.gitcode.host](https://binghe.gitcode.host/) - 硬核文章，应有尽有！
 - :tv: 视频：[B站 冰河技术](https://space.bilibili.com/517638832)
-- :love_letter: 微信：[hacker_binghe](https://binghe.gitcode.host/images/personal/hacker_binghe.jpg) - 备注来意
+- :love_letter: 微信：[hacker_binghe](images/hacker_binghe.jpg) - 备注来意
 - :feet: 我的知识星球：[手写企业级中间件项目、大厂高并发秒杀系统、并发编程、性能调优、框架源码、分布式、微服务、1对1解答、答辩晋升技巧、定期直播](https://binghe.gitcode.host/md/zsxq/introduce.html)
 
 ## 今年的努力 ✨
@@ -34,7 +34,7 @@
 
 ## 联系我
 
-添加微信：[hacker_binghe](https://binghe.gitcode.host/images/personal/hacker_binghe.jpg) - 备注来意
+添加微信：[hacker_binghe](images/hacker_binghe.jpg) - 备注来意
 
 ## 关于星球
 
@@ -55,7 +55,7 @@
 冰河的知识星球是一个简单、干净、纯粹交流技术的星球，不吹水，目前领券加入享5折优惠，价值远超门票。加入星球的用户，记得添加冰河微信：**hacker_binghe**，冰河拉你进星球专属VIP交流群。
 
 <div align="center">
-    <img src="https://binghe.gitcode.host/images/personal/xingqiu_149.png?raw=true" width="70%">
+    <img src="images/xingqiu_149.png?raw=true" width="70%">
     <br/>
 </div>
 
@@ -79,7 +79,7 @@
 本群的宗旨是给大家提供一个良好的技术学习交流平台，所以杜绝一切广告！由于微信群人满 100 之后无法加入，请扫描下方二维码先添加作者 “冰河” 微信(hacker_binghe)，备注：`学习加群`。
 
 <div align="center">
-    <img src="https://binghe.gitcode.host/images/personal/hacker_binghe.jpg?raw=true" width="180px">
+    <img src="images/hacker_binghe.jpg?raw=true" width="180px">
     <div style="font-size: 18px;">冰河微信</div>
     <br/>
 </div>
@@ -90,7 +90,7 @@
 分享各种编程语言、开发技术、分布式与微服务架构、分布式数据库、分布式事务、云原生、大数据与云计算技术和渗透技术。另外，还会分享各种面试题和面试技巧。内容在 **冰河技术** 微信公众号首发，强烈建议大家关注。
 
 <div align="center">
-    <img src="https://binghe.gitcode.host/images/personal/ice_wechat.jpg?raw=true" width="180px">
+    <img src="images/ice_wechat.jpg?raw=true" width="180px">
     <div style="font-size: 18px;">公众号：冰河技术</div>
     <br/>
 </div>
@@ -101,7 +101,7 @@
 定期分享各种编程语言、开发技术、分布式与微服务架构、分布式数据库、分布式事务、云原生、大数据与云计算技术和渗透技术。另外，还会分享各种面试题和面试技巧。
 
 <div align="center">
-    <img src="https://binghe.gitcode.host/images/personal/ice_video.png?raw=true" width="180px">
+    <img src="images/ice_video.png?raw=true" width="180px">
     <div style="font-size: 18px;">视频号：冰河技术</div>
     <br/>
 </div>
@@ -110,10 +110,10 @@
 
 加入星球 **[冰河技术](http://m6z.cn/6aeFbs)**，可以获得本站点所有学习内容的指导与帮助。如果你遇到不能独立解决的问题，也可以添加冰河的微信：**hacker_binghe**， 我们一起沟通交流。另外，在星球中不只能学到实用的硬核技术，还能学习**实战项目**！
 
-关注 [冰河技术](https://binghe.gitcode.host/images/personal/ice_wechat.jpg)公众号，回复 `星球` 可以获取入场优惠券。
+关注 [冰河技术](images/ice_wechat.jpg)公众号，回复 `星球` 可以获取入场优惠券。
 
 <div align="center">
-    <img src="https://binghe.gitcode.host/images/personal/xingqiu.png?raw=true" width="180px">
+    <img src="images/xingqiu.png?raw=true" width="180px">
     <div style="font-size: 18px;">知识星球：冰河技术</div>
     <br/>
 </div>
@@ -161,37 +161,37 @@
 ### 我的新书
 
 <div align="center">
-    <img src="https://binghe.gitcode.host/images/book/2023-02-20-001.jpg?raw=true" width="80%">
+    <img src="images/concurrent-003.jpg?raw=true" width="80%">
       <div style="font-size: 18px;"><a href="https://u.jd.com/izMwOkE">《深入理解高并发编程：JDK核心技术》</a></div>
     <br/>
 </div>
 
 <div align="center">
-    <img src="https://img-blog.csdnimg.cn/fe76310aea734752b3b79c4df1438943.jpeg?raw=true" width="80%">
+    <img src="images/concurrent-001.jpg?raw=true" width="80%">
       <div style="font-size: 18px;"><a href="https://item.jd.com/13190783.html">《深入理解高并发编程：核心原理与案例实战》</a></div>
     <br/>
 </div>
 
 <div align="center">
-    <img src="https://img-blog.csdnimg.cn/5ff576f8189d46cf83c59fe4e5efc6dd.png?raw=true" width="80%">
+    <img src="images/concurrent-002.png?raw=true" width="80%">
       <div style="font-size: 18px;"><a href="https://item.jd.com/10067507938306.html">《深入高平行開發：深度原理&專案實戰》</a></div>
     <br/>
 </div>
 
 <div align="center">
-    <img src="https://img-blog.csdnimg.cn/5ee367b68023466a87f66763a64a4133.jpg?raw=true" width="100%">
+    <img src="images/transaction.png?raw=true" width="100%">
       <div style="font-size: 18px;"><a href="https://item.jd.com/12972343.html">《深入理解分布式事务：原理与实战》</a></div>
     <br/>
 </div>
 
 <div align="center">
-    <img src="https://img-blog.csdnimg.cn/20210426115257555.png?raw=true" width="80%">
+    <img src="images/mysql.png?raw=true" width="80%">
       <div style="font-size: 18px;"><a href="https://item.jd.com/13036154.html">《MySQL技术大全：开发、优化与运维实战》</a></div>
     <br/>
 </div>
 
 <div align="center">
-    <img src="https://img-blog.csdnimg.cn/20200828011209412.png?raw=true" width="80%">
+    <img src="images/bigdata.png?raw=true" width="80%">
       <div style="font-size: 18px;"><a href="https://item.jd.com/12710993.html">《海量数据处理与大数据技术实战》</a></div>
     <br/>
 </div>
@@ -1423,4 +1423,4 @@
 回复【并发编程】获取全网累计下载60W+的《深入理解高并发编程》电子书。  
 回复【渗透笔记】获取全网5星好评的《冰河的渗透实战笔记》电子书。
 
-![](https://binghe.gitcode.host/images/system/gongzhonghao.png)
+![](images/gongzhonghao.png)
