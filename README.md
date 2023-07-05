@@ -70,7 +70,7 @@
 
 ### 使用案例（测试用例）
 
-1.User类模拟从数据库查询对象类型的数据  
+**1.User类模拟从数据库查询对象类型的数据**     
 源码详见：io.binghe.redis.test.bean.User  
 ```java
 public class User {
@@ -109,7 +109,7 @@ public class User {
 }
 ```
 
-2.DistributeCacheServiceTest类测试各种场景  
+**2.DistributeCacheServiceTest类测试各种场景**   
 源码详见：io.binghe.redis.test.DistributeCacheServiceTest  
 ```java
 @SpringBootTest
