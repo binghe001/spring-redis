@@ -31,6 +31,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -53,10 +54,10 @@ public class RedisDistributeCacheService implements DistributeCacheService {
     private static final Long CACHE_NULL_TTL = 60L;
     //缓存的空数据
     private static final String EMPTY_VALUE = "";
+    //缓存的空列表数据
+    private static final String EMPTY_LIST_VALUE = "[]";
     //分布式锁key的后缀
     private static final String LOCK_SUFFIX = "_lock";
-    //等待锁时间，默认2秒
-    private static final Long LOCK_WAIT_TIMEOUT = 2000L;
     //线程休眠的毫秒数
     private static final long THREAD_SLEEP_MILLISECONDS = 50;
 
@@ -215,6 +216,9 @@ public class RedisDistributeCacheService implements DistributeCacheService {
         }
         //命中，需要先把json反序列化为对象
         RedisData redisData = this.getResult(str, RedisData.class);
+        if (EMPTY_VALUE.equals(redisData.getData())){
+            return null;
+        }
         R r = this.getResult(redisData.getData(), type);
         LocalDateTime expireTime = redisData.getExpireTime();
         //判断是否过期
@@ -238,7 +242,7 @@ public class RedisDistributeCacheService implements DistributeCacheService {
         DistributedLock distributedLock = distributedLockFactory.getDistributedLock(lockKey);
         ThreadPoolUtils.execute(() -> {
             try{
-                boolean isLock = distributedLock.tryLock(LOCK_WAIT_TIMEOUT, TimeUnit.MILLISECONDS);
+                boolean isLock = distributedLock.tryLock();
                 //获取锁成功, Double Check
                 if (isLock){
                     R newR = null;
@@ -259,6 +263,8 @@ public class RedisDistributeCacheService implements DistributeCacheService {
                     if (newR != null){
                         // 重建缓存
                         this.setWithLogicalExpire(key, newR, timeout, unit);
+                    }else{
+                        this.setWithLogicalExpire(key, EMPTY_VALUE, CACHE_NULL_TTL, TimeUnit.SECONDS);
                     }
                 }
             }catch (InterruptedException e){
@@ -291,6 +297,9 @@ public class RedisDistributeCacheService implements DistributeCacheService {
         }
         //命中，需要先把json反序列化为对象
         RedisData redisData = this.getResult(str, RedisData.class);
+        if (EMPTY_VALUE.equals(redisData.getData())){
+            return null;
+        }
         R r = this.getResult(redisData.getData(), type);
         LocalDateTime expireTime = redisData.getExpireTime();
         //判断是否过期
@@ -314,7 +323,7 @@ public class RedisDistributeCacheService implements DistributeCacheService {
         DistributedLock distributedLock = distributedLockFactory.getDistributedLock(lockKey);
         ThreadPoolUtils.execute(() -> {
             try{
-                boolean isLock = distributedLock.tryLock(LOCK_WAIT_TIMEOUT, TimeUnit.MILLISECONDS);
+                boolean isLock = distributedLock.tryLock();
                 //获取锁成功, Double Check
                 if (isLock){
                     R newR = null;
@@ -335,6 +344,8 @@ public class RedisDistributeCacheService implements DistributeCacheService {
                     if (newR != null){
                         // 重建缓存
                         this.setWithLogicalExpire(key, newR, timeout, unit);
+                    }else {
+                        this.setWithLogicalExpire(key, EMPTY_VALUE, CACHE_NULL_TTL, TimeUnit.SECONDS);
                     }
                 }
             }catch (InterruptedException e){
@@ -368,6 +379,9 @@ public class RedisDistributeCacheService implements DistributeCacheService {
         }
         //命中，需要先把json反序列化为对象
         RedisData redisData = this.getResult(str, RedisData.class);
+        if (EMPTY_LIST_VALUE.equals(redisData.getData())){
+            return new ArrayList<>();
+        }
         List<R> list = this.getResultList(JSONUtil.toJsonStr(redisData.getData()), type);
         LocalDateTime expireTime = redisData.getExpireTime();
         //判断是否过期
@@ -391,7 +405,7 @@ public class RedisDistributeCacheService implements DistributeCacheService {
         DistributedLock distributedLock = distributedLockFactory.getDistributedLock(lockKey);
         ThreadPoolUtils.execute(() -> {
             try{
-                boolean isLock = distributedLock.tryLock(LOCK_WAIT_TIMEOUT, TimeUnit.MILLISECONDS);
+                boolean isLock = distributedLock.tryLock();
                 //获取锁成功, Double Check
                 if (isLock){
                     List<R> newR = null;
@@ -413,6 +427,8 @@ public class RedisDistributeCacheService implements DistributeCacheService {
                     if (newR != null){
                         // 重建缓存
                         this.setWithLogicalExpire(key, newR, timeout, unit);
+                    }else {
+                        this.setWithLogicalExpire(key, EMPTY_LIST_VALUE, CACHE_NULL_TTL, TimeUnit.SECONDS);
                     }
                 }
             }catch (InterruptedException e){
@@ -445,6 +461,9 @@ public class RedisDistributeCacheService implements DistributeCacheService {
         }
         //命中，需要先把json反序列化为对象
         RedisData redisData = this.getResult(str, RedisData.class);
+        if (EMPTY_LIST_VALUE.equals(redisData.getData())){
+            return new ArrayList<>();
+        }
         List<R> list = this.getResultList(JSONUtil.toJsonStr(redisData.getData()), type);
         LocalDateTime expireTime = redisData.getExpireTime();
         //判断是否过期
@@ -468,7 +487,7 @@ public class RedisDistributeCacheService implements DistributeCacheService {
         DistributedLock distributedLock = distributedLockFactory.getDistributedLock(lockKey);
         ThreadPoolUtils.execute(() -> {
             try{
-                boolean isLock = distributedLock.tryLock(LOCK_WAIT_TIMEOUT, TimeUnit.MILLISECONDS);
+                boolean isLock = distributedLock.tryLock();
                 //获取锁成功, Double Check
                 if (isLock){
                     List<R> newR = null;
@@ -490,6 +509,8 @@ public class RedisDistributeCacheService implements DistributeCacheService {
                     if (newR != null){
                         // 重建缓存
                         this.setWithLogicalExpire(key, newR, timeout, unit);
+                    }else {
+                        this.setWithLogicalExpire(key, EMPTY_LIST_VALUE, CACHE_NULL_TTL, TimeUnit.SECONDS);
                     }
                 }
             }catch (InterruptedException e){
@@ -521,7 +542,7 @@ public class RedisDistributeCacheService implements DistributeCacheService {
         //获取分布式锁
         DistributedLock distributedLock = distributedLockFactory.getDistributedLock(lockKey);
         try {
-            boolean isLock = distributedLock.tryLock(LOCK_WAIT_TIMEOUT, TimeUnit.MILLISECONDS);
+            boolean isLock = distributedLock.tryLock();
             //获取分布式锁失败，重试
             if (!isLock){
                 Thread.sleep(THREAD_SLEEP_MILLISECONDS);
@@ -538,7 +559,7 @@ public class RedisDistributeCacheService implements DistributeCacheService {
             //数据库本身不存在数据
             if (r == null){
                 //缓存空数据
-                redisTemplate.opsForValue().set(key, EMPTY_VALUE, CACHE_NULL_TTL, TimeUnit.SECONDS);
+                this.set(key, EMPTY_VALUE, CACHE_NULL_TTL, TimeUnit.SECONDS);
                 return null;
             }
             //数据库存在数据
@@ -571,7 +592,7 @@ public class RedisDistributeCacheService implements DistributeCacheService {
         //获取分布式锁
         DistributedLock distributedLock = distributedLockFactory.getDistributedLock(lockKey);
         try {
-            boolean isLock = distributedLock.tryLock(LOCK_WAIT_TIMEOUT, TimeUnit.MILLISECONDS);
+            boolean isLock = distributedLock.tryLock();
             //获取分布式锁失败，重试
             if (!isLock){
                 Thread.sleep(THREAD_SLEEP_MILLISECONDS);
@@ -587,7 +608,7 @@ public class RedisDistributeCacheService implements DistributeCacheService {
             //数据库本身不存在数据
             if (r == null){
                 //缓存空数据
-                redisTemplate.opsForValue().set(key, EMPTY_VALUE, CACHE_NULL_TTL, TimeUnit.SECONDS);
+                this.set(key, EMPTY_VALUE, CACHE_NULL_TTL, TimeUnit.SECONDS);
                 return null;
             }
             //数据库存在数据
@@ -620,7 +641,7 @@ public class RedisDistributeCacheService implements DistributeCacheService {
         // 获取分布式锁
         DistributedLock distributedLock = distributedLockFactory.getDistributedLock(lockKey);
         try {
-            boolean isLock = distributedLock.tryLock(LOCK_WAIT_TIMEOUT, TimeUnit.MILLISECONDS);
+            boolean isLock = distributedLock.tryLock();
             //获取分布式锁失败，重试
             if (!isLock){
                 Thread.sleep(THREAD_SLEEP_MILLISECONDS);
@@ -671,7 +692,7 @@ public class RedisDistributeCacheService implements DistributeCacheService {
         // 获取分布式锁
         DistributedLock distributedLock = distributedLockFactory.getDistributedLock(lockKey);
         try {
-            boolean isLock = distributedLock.tryLock(LOCK_WAIT_TIMEOUT, TimeUnit.MILLISECONDS);
+            boolean isLock = distributedLock.tryLock();
             //获取分布式锁失败，重试
             if (!isLock){
                 Thread.sleep(THREAD_SLEEP_MILLISECONDS);
