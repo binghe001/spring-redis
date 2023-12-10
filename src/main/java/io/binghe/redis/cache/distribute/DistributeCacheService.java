@@ -21,7 +21,9 @@ import cn.hutool.crypto.digest.MD5;
 import cn.hutool.json.JSONUtil;
 import io.binghe.redis.cache.distribute.conversion.TypeConversion;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -52,6 +54,15 @@ public interface DistributeCacheService {
     void set(String key, Object value, Long timeout, TimeUnit unit);
 
     /**
+     * 设置缓存过期
+     * @param key 缓存key
+     * @param timeout 过期时长
+     * @param unit 时间单位
+     * @return 设置过期时间是否成功
+     */
+    Boolean expire(String key, final long timeout, final TimeUnit unit);
+
+    /**
      * 保存缓存时设置逻辑过期时间
      * @param key 缓存key
      * @param value 缓存value
@@ -67,6 +78,35 @@ public interface DistributeCacheService {
      */
     String get(String key);
 
+    /**
+     * 获取缓存数据
+     * @param key 缓存的key
+     * @param targetClass 目标对象Class
+     * @param <T> 泛型
+     * @return 返回的数据
+     */
+    <T> T getObject(String key, Class<T> targetClass);
+
+    /**
+     * 根据key列表批量获取value
+     * @param keys key列表
+     * @return value集合
+     */
+    List<String> multiGet(Collection<String> keys);
+
+    /**
+     * 根据正则表达式获取所有的key集合
+     * @param pattern 正则表达式
+     * @return key的集合
+     */
+    Set<String> keys(String pattern);
+
+    /**
+     * 删除指定的key
+     * @param key key
+     * @return 删除是否成功
+     */
+    Boolean delete(String key);
     /**
      * 带参数查询对象和简单类型数据，防止缓存穿透
      * @param keyPrefix 缓存key的前缀
