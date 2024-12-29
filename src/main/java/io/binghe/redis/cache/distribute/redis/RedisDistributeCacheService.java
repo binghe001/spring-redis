@@ -296,6 +296,8 @@ public class RedisDistributeCacheService implements DistributeCacheService {
                         if (expireTime.isBefore(LocalDateTime.now())){
                             //查询数据库
                             newR = dbFallback.apply(id);
+                        }else{
+                            return;
                         }
                     }
                     if (newR != null){
@@ -377,6 +379,8 @@ public class RedisDistributeCacheService implements DistributeCacheService {
                         if (expireTime.isBefore(LocalDateTime.now())){
                             //查询数据库
                             newR = dbFallback.get();
+                        }else {
+                            return;
                         }
                     }
                     if (newR != null){
@@ -460,6 +464,8 @@ public class RedisDistributeCacheService implements DistributeCacheService {
                         if (expireTime.isBefore(LocalDateTime.now())){
                             //查询数据库
                             newR = dbFallback.apply(id);
+                        }else {
+                            return;
                         }
                     }
                     if (newR != null){
@@ -542,6 +548,8 @@ public class RedisDistributeCacheService implements DistributeCacheService {
                         if (expireTime.isBefore(LocalDateTime.now())){
                             //查询数据库
                             newR = dbFallback.get();
+                        }else {
+                            return;
                         }
                     }
                     if (newR != null){
